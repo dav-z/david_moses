@@ -1,3 +1,23 @@
+var folder = "./images/";
+
+$.ajax({
+  url: folder,
+  success: function (data) {
+    $(data).find("a").attr("href", function(i, val) {
+      if(val.match(/\.(jpe?g|png|gif)$/)) {
+        var alt = val.replace(/[^0-9a-z]/g, ' ');
+        if(i === 0) {
+          $(".container ul").append("<li style=\"display: inline-block;\"><img alt=\"" + alt + "\" src='" + folder + val +"'/></li>");
+        }
+        else {
+          $(".container ul").append("<li style=\"display: inline-block;\"><img alt=\"" + alt + "\" src='" + folder + val +"'/></li>");
+        }
+      }
+    });
+  }
+});
+
+
 $( window ).on('load', function() {
   // var currentIndex = 0,
   // items = $('.container div'),
