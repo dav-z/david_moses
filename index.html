@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="keywords" content="jonathan, buckley, jonny, buckley, problem, jonathan buckley, jonny buckley, jonny problem, jonnyproblem, casting, director, casting director">
+    <meta name="description" content="Jonathan Buckley is a casting director.">
+    <link rel="icon" href="favicon.png">
+    <title>deardavidmoses</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script type="text/javascript">
+      var folder = "images/";
+
+      $.ajax({
+        url: folder,
+        success: function (data) {
+          $(data).find("a").attr("href", function(i, val) {
+            if(val.match(/\.(jpe?g|png|gif)$/)) {
+              var alt = val.replace(/[^0-9a-z]/g, ' ');
+              if(i === 0) {
+                $(".container ul").append("<li style=\"display: inline-block;\"><img alt=\"" + alt + "\" src='" + folder + val +"'/></li>");
+              }
+              else {
+                $(".container ul").append("<li style=\"display: inline-block;\"><img alt=\"" + alt + "\" src='" + folder + val +"'/></li>");
+              }
+            }
+          });
+        }
+      });
+    </script>
+    <link rel="stylesheet" href="css/default.css">
+  </head>
+  <body>
+    <div class="nav">
+        <div class="nav1"><a href="/">david moses</a></div>
+        <div class="nav2"><a href="/work">work</a></div>
+        <div class="nav3"><a href="/info">bio</a></div>
+    </div>
+    <section class="slider">
+      <div id="gallery" class="container">
+        <ul>
+        </ul>
+      </div>
+      <div class="sliderbtn">
+        <div class="button prev" id="prev">←</div>
+        <div class="button next" id="next">→</div>
+      </div>
+    </section>
+    <script type="text/javascript" src="js/main.js"></script>
+  </body>
+</html>
