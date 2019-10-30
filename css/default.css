@@ -1,15 +1,4 @@
 /* iphone 5 */
-@font-face {
-    font-family: pragmatica-extended;
-    font-weight: 700;
-    src: url("/fonts/PragmaticaExtended-Bold.ttf") format("truetype");
-}
-@font-face {
-    font-family: pragmatica-extended;
-    font-weight: 200;
-    src: url("/fonts/PragmaticaExtended-ExtraLight.ttf") format("truetype");
-}
-
 html {
   height: 100%;
 }
@@ -24,8 +13,9 @@ body {
   display: flex;
   justify-content: center;
   align-items: center; */
-  font-family: pragmatica-extended, sans-serif;
-  font-weight: 200;
+  font-family: "Times New Roman", serif;
+  font-style: italic;
+  /* font-weight: 200; */
   font-size: 12px;
   height: 100%;
   /* padding-top: 20px; */
@@ -93,8 +83,9 @@ body {
 
 .button {
   font-size: 20px;
-  font-family: arial;
-  font-weight: 200;
+  font-family: "Times New Roman", serif;
+  font-style: italic;
+  /* font-weight: 200; */
   margin: 0 20px;
 }
 

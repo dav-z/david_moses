@@ -11,18 +11,54 @@
     <script type="text/javascript" src="js/main.js"></script>
     <script type="text/javascript">
       var folder = "https://github.com/dav-z/david_moses/tree/master/images/";
-
-      $.ajax({
-        url: folder,
-        success: function (data) {
-          $(data).find("a").attr("href", function(i, val) {
-            if(val.match(/\.(jpe?g|png|gif)$/)) {
-              var alt = val.replace(/[^0-9a-z]/g, ' ');
-              $(".container ul").append("<li style=\"display: inline-block;\"><img alt=\"" + alt + "\" src='" + folder + val +"'/></li>");
-            }
-          });
+      var len, gallery, items, current, first, second, last, secondlast, triggers;
+      (async () => {
+        const response = await fetch('https://api.github.com/repos/dav-z/david_moses/contents/images/');
+        const data = await response.json();
+        let htmlString = '<ul>';
+        var num = 0;
+        for (let file of data) {
+          var src = file.download_url;
+          if(src.match(/\.(jpe?g|png|gif)$/)) {
+            $(".container ul").append("<li style=\"display: inline-block;\"><img src='" + file.download_url +"'/></li>");
+            num++;
+          }
+          // htmlString += `<li><a href="${file.path}">${file.name}</a></li>`;
         }
-      });
+        len = num;
+        gallery = $('#gallery ul'),
+        items   = gallery.find('li'),
+        // len     = items.length,
+        current = 1,  /* the current item we're looking */
+
+        first   = items.filter(':first-child'),
+        second  = items.filter((index)=>index==1),
+        last    = items.filter(':last-child'),
+        secondlast = items.filter((index)=>index==items.length-2);
+      console.log("second 1 " + second);
+
+        /* 1. Cloning first and last item */
+        first.before(secondlast.clone(true));
+        first.before(last.clone(true));
+        last.after(second.clone(true));
+        last.after(first.clone(true));
+        console.log(len);
+        // htmlString += '</ul>';
+        console.dir(data);
+        // document.getElementsByTagName('body')[0].innerHTML = htmlString;
+      })();
+
+      // $.ajax({
+      //   url: folder,
+      //   success: function (data) {
+      //     $(data).find("a").attr("href", function(i, val) {
+      //       if(val.match(/\.(jpe?g|png|gif)$/)) {
+      //         var alt = val.replace(/[^0-9a-z]/g, ' ');
+      //         $(".container ul").append("<li style=\"display: inline-block;\"><img alt=\"" + alt + "\" src='" + folder + val +"'/></li>");
+      //       }
+      //     });
+      //   }
+      // });
     </script>
     <link rel="stylesheet" href="css/default.css">
   </head>
