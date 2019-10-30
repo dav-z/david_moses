@@ -9,8 +9,8 @@
     <title>deardavidmoses</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script type="text/javascript" src="js/main.js"></script>
-    <!-- <script type="text/javascript">
-      var folder = "images/";
+    <script type="text/javascript">
+      var folder = "./images/";
 
       $.ajax({
         url: folder,
@@ -18,17 +18,12 @@
           $(data).find("a").attr("href", function(i, val) {
             if(val.match(/\.(jpe?g|png|gif)$/)) {
               var alt = val.replace(/[^0-9a-z]/g, ' ');
-              if(i === 0) {
-                $(".container ul").append("<li style=\"display: inline-block;\"><img alt=\"" + alt + "\" src='" + folder + val +"'/></li>");
-              }
-              else {
-                $(".container ul").append("<li style=\"display: inline-block;\"><img alt=\"" + alt + "\" src='" + folder + val +"'/></li>");
-              }
+              $(".container ul").append("<li style=\"display: inline-block;\"><img alt=\"" + alt + "\" src='" + folder + val +"'/></li>");
             }
           });
         }
       });
-    </script> -->
+    </script>
     <link rel="stylesheet" href="css/default.css">
   </head>
   <body>
@@ -40,10 +35,10 @@
     <section class="slider">
       <div id="gallery" class="container">
         <ul>
-          <li style="display: inline-block;"><img alt="neighbor gif" src="./images/neighbor.gif"></li>
+          <!-- <li style="display: inline-block;"><img alt="neighbor gif" src="./images/neighbor.gif"></li>
           <li style="display: inline-block;"><img alt="nike gif" src="./images/nike.gif"></li>
           <li style="display: inline-block;"><img alt="pretty little fears gif" src="./images/pretty_little_fears.gif"></li>
-          <li style="display: inline-block;"><img alt="the london gif" src="./images/the_london.gif"></li>
+          <li style="display: inline-block;"><img alt="the london gif" src="./images/the_london.gif"></li> -->
         </ul>
       </div>
       <div class="sliderbtn">
