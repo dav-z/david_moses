@@ -21,7 +21,7 @@
           var src = file.download_url;
           if(src.match(/\.(jpe?g|png|gif)$/)) {
             // $(".container ul").append("<li style=\"display: inline-block;\"><img src='" + file.download_url + "' onContextMenu=\"return false;\"/></li>");
-            $(".container ul").append("<li style=\"display: inline-block;\"><div style=\"background: url(\'" + file.download_url + "\'); background-size: contain; background-position: center center; background-repeat: no-repeat;\"/></div></li>");
+            $(".container ul").append("<li style=\"display: inline-block;\"><div class=\"image\" style=\"background: url(\'" + file.download_url + "\'); background-size: contain; background-position: center center; background-repeat: no-repeat;\"/></div></li>");
             num++;
           }
           // htmlString += `<li><a href="${file.path}">${file.name}</a></li>`;
@@ -78,11 +78,13 @@
           <li style="display: inline-block;"><img alt="the london gif" src="./images/the_london.gif"></li> -->
         </ul>
       </div>
-      <div class="sliderbtn">
-        <div class="button prev" id="prev">⟵</div>
-        <div class="button next" id="next">⟶</div>
-      </div>
     </section>
+    <div class="overlay button prev" id="prev"></div>
+    <div class="overlay button next" id="next"></div>
+    <div class="sliderbtn">
+      <div class="button prev" id="prev">⟵</div>
+      <div class="button next" id="next">⟶</div>
+    </div>
     <!-- <script type="text/javascript" src="js/main.js"></script> -->
   </body>
 </html>
